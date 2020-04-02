@@ -147,8 +147,8 @@ int main(){
     
     printf("Spero di essere stato utile! :)");
     printf("\n");
-    printf("Visita le mie repository: ");
-    printf("Condividi il mio programma: ");
+    printf("Visita le mie repository: https://github.com/Gioeledeo");
+    printf("Condividi il mio programma: https://github.com/Gioeledeo/Calcolatore-bolli");
 	
 	return 0;
 }
