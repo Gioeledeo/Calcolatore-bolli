@@ -145,10 +145,20 @@ int main(){
     printf("\n");
     printf("\n");
     
-    printf("Spero di essere stato utile! :)");
+    printf("Spero di essere stato utile! :) \n");
     printf("\n");
-    printf("Visita le mie repository: https://github.com/Gioeledeo");
-    printf("Condividi il mio programma: https://github.com/Gioeledeo/Calcolatore-bolli");
+    printf("Visita le mie repository: https://github.com/Gioeledeo \n");
+    printf("Condividi il mio programma: https://github.com/Gioeledeo/Calcolatore-bolli \n");
+    system("pause");
+    
+    for(int i=0; i<3; i++){
+    	system("color 0a");
+    	system("color 0b");
+    	system("color 0c");
+    	system("color 0d");
+    	system("color 0e");
+    	system("color 0f");
+	}
 	
 	return 0;
 }
