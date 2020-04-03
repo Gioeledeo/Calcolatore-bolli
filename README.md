@@ -5,4 +5,9 @@
  
  Una volta scaricato l'archivio bastera avviare il file eseguibile .exe al suo interno.
  
+ Seguire le istruzioni all'interno del programma.
+ Se vengono richiesti dei "numeri corrispondeti classe" o "selezionare una delle voci seguenti" digitare il numero della riga corrispondente.
+ 
+ Per qualsiasi proposta di modifica o recensione, scrivere a gioeledeo27@gmail.com con oggetto "gitHub - Calcolatore bolli"
+ 
  Enjoy! ;)
