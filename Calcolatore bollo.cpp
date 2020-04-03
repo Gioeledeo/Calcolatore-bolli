@@ -143,22 +143,23 @@ int main(){
 	
 	//per alcune classi vige una tassazione fissa, verifica ed eventuale stampa del prezzo per le classi interessate
 		if(classn == 7){
-			printf("Per la classe selezionata, vige una tassazione fissa per il bollo. \n");
+			printf("Per la classe selezionata, vige una tassa di circolazione annuale fissa. \n");
 			printf("Tassa di circolazione annuale: 25.00 EUR \n");
 		}
 		else if(classn == 8){
-			printf("Per la classe selezionata, vige una tassazione fissa per il bollo. \n");
+			printf("Per la classe selezionata, vige una tassa di circolazione annuale fissa \n");
 			printf("Tassa di circolazione annuale: 30.00 EUR \n");
 		}
 		else if(classn == 9){
-			printf("Per la classe selezionata, vige una tassazione fissa per il bollo. \n");
+			printf("Per la classe selezionata, vige una tassa di circolazione annuale fissa \n");
 			printf("Tassa di circolazione annuale: 20.00 EUR \n");
 		}
 		else if(classn == 4){
-			printf("Per la classe selezionata, vige una tassazione fissa per il bollo. \n");
+			printf("Per la classe selezionata, vige una tassa di circolazione annuale fissa \n");
 			printf("Tassa di circolazione annuale: 25.00 EUR \n");
 		}
 	
+	//calcolo prezzo per veicoli appartenenti alla classe vol1
 		else if(classn == 1){
 			printf("Selezionare una delle seguenti voci: \n");
 			printf("\n");
@@ -199,60 +200,76 @@ int main(){
 					printf("\n");
 				}
 		
+		
 				if(kilo > 100){
 					sk = kilo -100;
-					price = (a * 100) + (b * sk);
+					price = (a * 100) + (b * sk); //calcolo prezzo vetture superiori a 100kw
 				}
 				else{
-					price = a * 100;
+					price = a * 100; //calcolo prezzo vetture inferiori a 100kw
 				}	
 			}
 			
 			else if(subclass == 2){
-				printf("Inserire portata massima espressa in kilogrammi arrotondata per eccesso senza decimali: ");
+				printf("Selezionare la portata massima \n");
+				printf("\n");
+				printf("1. 0 - 400 kg \n");
+				printf("2. 401 - 800 kg \n");
+				printf("3. 801 - 1000 kg \n");
+				printf("4. 1001 - 1500 kg \n");
+				printf("5. 1501 - 2000 kg \n");
+				printf("6. 2001 - 2500 kg \n");
+				printf("7. 2501 - 3000 kg \n");
+				printf("8. 3001 - 3500 kg \n");
+				printf("9. 3501 - 4000 kg \n");
+				printf("10. 4001 - 4500 kg \n");
+				printf("11. 4501 - 5000 kg \n");
+				printf("12. 5001 - 6000 kg \n");
+				printf("13. 6001 - 7000 kg \n");
+				printf("14. 7001 - 8000 kg \n");
 				cin >> portata;
 				printf("\n");
 				
-				if(portata <= 400){
+				if(portata == 1){
 					price = 22.82;
 				}
-				else if(portata <= 800){
+				else if(portata == 2){
 					price = 31.95;
 				}
-				else if(portata <= 1000){
+				else if(portata == 3){
 					price = 41.07;
 				}
-				else if(portata <= 1500){
+				else if(portata == 4){
 					price = 54.77;
 				}
-				else if(portata <= 2000){
+				else if(portata == 5){
 					price = 77.58;
 				}
-				else if(portata <= 2500){
+				else if(portata == 6){
 					price = 100.4;
 				}
-				else if(portata <= 3000){
+				else if(portata == 7){
 					price = 123.22;
 				}
-				else if(portata <= 3500){
+				else if(portata == 8){
 					price = 146.04;
 				}
-				else if(portata <= 4000){
+				else if(portata == 9){
 					price = 168.86;
 				}
-				else if(portata <= 4500){
+				else if(portata == 10){
 					price = 191.68;
 				}
-				else if(portata <= 5000){
+				else if(portata == 11){
 					price = 214.50;
 				}
-				else if(portata <= 6000){
+				else if(portata == 12){
 					price = 237.32;
 				}
-				else if(portata <= 7000){
+				else if(portata == 13){
 					price = 264.7;
 				}
-				else if(portata <= 8000){
+				else if(portata == 14){
 					price = 292.08;
 				}
 			}
@@ -268,7 +285,7 @@ int main(){
 				printf("\n");
 				
 				if(assi == 2){
-					if(portata >= 12 && portata < 15){
+					if(portata < 15){
 						classeAC = 1;
 					}
 					else if(portata >= 15){
@@ -277,38 +294,50 @@ int main(){
 				}
 				
 				else if(assi == 3){
-					if(portata >= 15 && portata < 19){
-						classeAC = 1;
-					}
-					else if(portata >= 19 && portata < 21){
-						classeAC = 2;
-					}
-					else if(portata >= 21 && portata < 23){
-						classeAC = 3;
-					}
-					else if(portata >= 23){
-						classeAC = 5;
+					if(portata >= 15){
+						if(portata < 19){
+							classeAC = 1;
+						}
+						else if(portata >= 19){
+							if(portata < 21){
+								classeAC = 2;
+							}
+							else if(portata >= 21){
+								if(portata < 23){
+									classeAC = 3;
+								}
+								else if(portata >= 23){
+									classeAC = 5;
+								}
+							}
+						}
 					}
 				}
 				
 				else if(assi >= 4){
-					if(portata >= 23 && portata < 25){
-						classeAC = 2;
-					}
-					else if(portata >= 25 && portata < 27){
-						classeAC = 3;
-					}
-					else if(portata >= 27 && portata < 29){
-						classeAC = 6;
-					}
-					else if(portata >= 29){
-						classeAC = 7;
+					if(portata >= 23){
+						if(portata < 25){
+							classeAC = 2;
+						}
+						else if(portata >= 25){
+							if(portata < 27){
+								classeAC = 3;
+							}
+							else if(portata >= 27){
+								if(portata < 29){
+									classeAC = 6;
+								}
+								else if(portata >= 29){
+									classeAC = 7;
+								}
+							}
+						}
 					}
 				}
 				
 				if(classeAC == 1){
-					price = 299.55;
-					priceq = 99.85;
+					price = 299.55; //prezzo annuale
+					priceq = 99.85; //prezzo quadrimestrale
 				}
 				else if(classeAC == 2){
 					price = 333.63;
@@ -335,6 +364,7 @@ int main(){
 					priceq = 224.66;
 				}
 				
+				//per questa categoria è prevista la possibilità di pagare una tassa quadrimestrale, che viene definita in questo punto dalle precedenti variabili
 				cout << "Tassa di circolazione quadrimestrale: " << price << " EUR" << endl;
 				
 			}
@@ -342,22 +372,22 @@ int main(){
 		}			
 		
 		else if(classn == 2){
-			price = 2.94 * kilo;
+			price = 2.94 * kilo; //per questa categoria il prezzo viene calcolato con un coefficente fisso per kw (2.94€/kw)
 		}
 		
 		else if(classn == 3){
-			price = 0.43 * kilo;
+			price = 0.43 * kilo; //per questa categoria il prezzo viene calcolato con un coefficente fisso per kw (0.43€/kw)
 		}
 		
 		else if(classn == 5){
-			price = kilo;
+			price = kilo; //per questa categoria il prezzo viene calcolato con un coefficente fisso per kw (1€/kw)
 		}
 		
 		else if(classn == 6){
 			if(emiss == 0){
-				a = 26.00;
-				b = 1.70;
-				c = 0;
+				a = 26.00; //prezzo per mezzo fino a 11 kw
+				b = 1.70; //prezzo per mezzo superiore a 11kw
+				c = 0; 
 			}
 			else if(emiss == 1){
 				a = 23.00;
@@ -372,7 +402,7 @@ int main(){
 			else if(emiss >= 3){
 				a = 20;
 				b = 0.88;
-				c = 0.89;
+				c = 0.89; //coefficente di differenza per calcolo
 			}
 			
 			if(kilo <= 11){
@@ -391,18 +421,24 @@ int main(){
 			cin >> posti;
 			printf("\n");
 			
-			if(posti >= 1 && posti <= 15){
-				price = 114.1;
+			if(posti >= 1){
+				if(posti <= 15){
+					price = 114.1;
+				}
+				else if(posti >= 16){
+					if(posti <= 25){
+						price = 171.14;
+					}
+					else if(posti >= 26){
+						if(posti <= 40){
+							price = 255.57;
+						}
+						else if(posti >= 41){
+							price = 427.17;
+						}
+					}
+				}
 			}
-			else if(posti >= 16 && posti <= 25){
-				price = 171.14;
-			}
-			else if(posti >= 26 && posti <= 40){
-				price = 255.57;
-			}
-			else if(posti >= 41){
-				price = 427.17;
-			}			
 		}
 		
 		else if(classn == 11){
@@ -415,7 +451,7 @@ int main(){
 			cin >> y;
 			
 			if(y == 1){
-				price = 210.00;
+				price = 210.00; //prezzo fisso annuale targa prova
 			}
 			else if(y == 2){
 				price = 20.00;
