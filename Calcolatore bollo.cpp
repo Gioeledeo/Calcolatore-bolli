@@ -29,7 +29,7 @@ int main(){
     	system("cls");
     	
     	//inizializzazione variabili
-    	int cil, emiss, fisc, error, classn, subclass, portata, assi, classeAC; 
+    	int cil, emiss, fisc, error, classn, subclass, portata, assi, classeAC, posti; 
     	float a, b, c, price, priceq, cv, kilo, sk;
     	
     	error = 0; //settaggio variabile errori. Indica al sistema che in partenza non ci sono errori.
@@ -196,25 +196,16 @@ int main(){
 				else if(emiss >= 7){
 					a = 0;
 					b = 0;
-					printf("Errore inserimento dato relativo alle emissioni. \n");
-					printf("Impossibile fornire risultato prezzo. \n");
-					error = 1;
-					system("color 0c");
 					printf("\n");
 				}
 		
-				if(error == 0){ //verifica che non ci siano errori per i quali è impossibile calcolare il risultato.
-					if(kilo > 100){
-						sk = kilo -100;
-						price = (a * 100) + (b * sk);
-					}
-					else{
-						price = a * 100;
-					}
-		
-					cout << "Tassa di circolazione annuale: " << price << " EUR"; 
-    				printf("\n");	
-    			}
+				if(kilo > 100){
+					sk = kilo -100;
+					price = (a * 100) + (b * sk);
+				}
+				else{
+					price = a * 100;
+				}	
 			}
 			
 			else if(subclass == 2){
@@ -224,59 +215,45 @@ int main(){
 				
 				if(portata <= 400){
 					price = 22.82;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 800){
 					price = 31.95;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 1000){
 					price = 41.07;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 1500){
 					price = 54.77;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 2000){
 					price = 77.58;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 2500){
 					price = 100.4;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 3000){
 					price = 123.22;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 3500){
 					price = 146.04;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 4000){
 					price = 168.86;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 4500){
 					price = 191.68;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 5000){
 					price = 214.50;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 6000){
 					price = 237.32;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 7000){
 					price = 264.7;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 				else if(portata <= 8000){
 					price = 292.08;
-					cout << "Tassa di circolazione annuale: " << price << " EUR";
 				}
 			}
 			
@@ -358,26 +335,22 @@ int main(){
 					priceq = 224.66;
 				}
 				
-				cout << "Tassa di circolazione annuale: " << price << " EUR" << endl;
 				cout << "Tassa di circolazione quadrimestrale: " << price << " EUR" << endl;
-				printf("\n");
 				
 			}
+    		
 		}			
 		
 		else if(classn == 2){
 			price = 2.94 * kilo;
-			cout << "Tassa di circolazione annuale: " << price << " EUR";
 		}
 		
 		else if(classn == 3){
 			price = 0.43 * kilo;
-			cout << "Tassa di circolazione annuale: " << price << " EUR";
 		}
 		
 		else if(classn == 5){
 			price = kilo;
-			cout << "Tassa di circolazione annuale: " << price << " EUR";
 		}
 		
 		else if(classn == 6){
@@ -404,15 +377,116 @@ int main(){
 			
 			if(kilo <= 11){
 				price = a;
-				cout << "Tassa di circolazione annuale: " << price << " EUR"; 
     			printf("\n");
 			}
 			else if(kilo > 11){
 				price = (a - c) + (b * kilo);
-				cout << "Tassa di circolazione annuale: " << price << " EUR"; 
     			printf("\n");
 			}
+
 		}
+		
+		else if(classn == 10){
+			printf("Inserire numero posti: ");
+			cin >> posti;
+			printf("\n");
+			
+			if(posti >= 1 && posti <= 15){
+				price = 114.1;
+			}
+			else if(posti >= 16 && posti <= 25){
+				price = 171.14;
+			}
+			else if(posti >= 26 && posti <= 40){
+				price = 255.57;
+			}
+			else if(posti >= 41){
+				price = 427.17;
+			}			
+		}
+		
+		else if(classn == 11){
+			printf("Selezionare una delle seguenti voci: \n");
+			printf("\n");
+			printf("1. Autoveicoli e rimorchi \n");
+			printf("2. Ciclomotori \n");
+			printf("3. Motoveicoli \n");
+			printf("\n");
+			cin >> y;
+			
+			if(y == 1){
+				price = 210.00;
+			}
+			else if(y == 2){
+				price = 20.00;
+			}
+			else if(y == 3){
+				price = 32.00;
+			}			
+		}
+		
+		else if(classn == 12){
+			printf("Selezionare una delle seguenti voci: \n");
+			printf("\n");
+			printf("1. Cilindrata fino a 125cc \n");
+			printf("2. Cilindrata fino a 499cc \n");
+			printf("3- Cilindrata uguale o superiore a 500cc \n");
+			printf("\n");
+			cin >> y;
+			
+			if(y == 1){
+				price = 20.0;
+			}
+			else if(y == 2 || y == 3){
+				printf("Selezionare la portata: \n");
+				printf("\n");
+				printf("1. fino a 400kg \n");
+				printf("2. 400 - 800 kg \n");
+				printf("3. 800 - 1000 kg \n");
+				printf("4. 1000 - 1500 kg \n");
+				printf("5. 1500 - 2000 kg \n");
+				printf("\n");
+				cin >> y;
+				
+				if(y == 2){
+					if(portata == 1){
+						price = 21.73;
+					}
+					else if(portata == 2){
+						price = 30.43;
+					}
+					else if(portata == 3){
+						price = 39.12;
+					}
+					else if(portata == 4){
+						price = 52.16;
+					}
+					else if(portata == 5){
+						price = 73.89;
+					}
+				}
+				else if(y == 3){
+					if(portata == 1){
+						price = 22.82;
+					}
+					else if(portata == 2){
+						price = 31.95;
+					}
+					else if(portata == 3){
+						price = 41.07;
+					}
+					else if(portata == 4){
+						price = 54.77;
+					}
+					else if(portata == 5){
+						price = 77.58;
+					}
+				}	
+			}
+		}
+		
+		cout << "Tassa di circolazione annuale: " << price << " EUR"; 
+    	printf("\n");
 		
     	printf("\n");
     	printf("\n");
