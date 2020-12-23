@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdlib.h>
+#include <math.h>
 
 using namespace std;
 int y;
@@ -29,7 +30,7 @@ int main(){
     	system("cls");
     	
     	//inizializzazione variabili
-    	int cil, emiss, fisc, error, classn, subclass, portata, assi, classeAC, posti; 
+    	int cil, emiss, fisc, error, classn, subclass, portata, assi, classeAC, posti, kwcv; 
     	float a, b, c, price, priceq, cv, kilo, sk;
     	
     	error = 0; //settaggio variabile errori. Indica al sistema che in partenza non ci sono errori.
@@ -78,20 +79,30 @@ int main(){
 			cout << "Classe emissioni: EURO ";
 			cin >> emiss;
     	
-   		//inserimento potenza del veicolo
+    	//inserimento potenza del veicolo
+    	printf("Premere 1 per inserire i Cavalli vapore, 2 per inserire i kw ");
+    	cin >> kwcv;
+    	
+    	if(kwcv == 2){
 			cout << "Kilowatt [kW]: ";
     		cin >> kilo;
-    
-    	//calcolo cavalli vapore veicolo
-			cv = kilo*1.36;
-	    	cout << "Cavalli vapore [cv]: " << cv << endl;
-	    	printf("\n");
+    		kilo = ceil(kilo+0.5);
+    		cv = kilo*1.36;
+    		cout << "Cavalli vapore [cv]: " << cv << endl;
+    	}
+    	
+    	if(kwcv == 1){
+    		cout << "Cavalli vapore [cv]: ";
+    		cin >> cv;
+    		kilo = cv/1.36;
+    		cout << "Kilowatt [kw]: " << kilo << endl;
+		}
 	
-			cout << "Premere 1 per procedere, 2 per modificare i valori inseriti -- "; //in caso di errato inserimento, è possibile slezionare la classe nuovamente
-    		cin >> y;
+		cout << "Premere 1 per procedere, 2 per modificare i valori inseriti -- "; //in caso di errato inserimento, è possibile slezionare la classe nuovamente
+    	cin >> y;
     		
-    		printf("\n");
-    		printf("\n");
+    	printf("\n");
+    	printf("\n");
 		
 		}while(y == 2);
 	
@@ -206,8 +217,10 @@ int main(){
 					price = (a * 100) + (b * sk); //calcolo prezzo vetture superiori a 100kw
 				}
 				else{
-					price = a * 100; //calcolo prezzo vetture inferiori a 100kw
+					price = a * kilo; //calcolo prezzo vetture inferiori a 100kw
 				}	
+			
+			price = ceil(price);
 			}
 			
 			else if(subclass == 2){
